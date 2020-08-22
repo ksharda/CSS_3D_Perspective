@@ -9,6 +9,17 @@ var rotateFn = isHorizontal ? 'rotateY' : 'rotateX';
 var radius, theta;
 // console.log( cellWidth, cellHeight );
 
+if (prevButton === selectedIndex) {
+	rotateCarousel.addEventListener('click', function () {
+			var nextButton = document.querySelector('.next-button');
+			nextButton.addEventListener('click', function () {
+				selectedIndex++;
+				rotateCarousel();
+			});
+		}
+
+	)
+}
 function rotateCarousel() {
   var angle = theta * selectedIndex * -1;
   carousel.style.transform = 'translateZ(' + -radius + 'px) ' + 
@@ -21,11 +32,7 @@ prevButton.addEventListener( 'click', function() {
   rotateCarousel();
 });
 
-var nextButton = document.querySelector('.next-button');
-nextButton.addEventListener( 'click', function() {
-  selectedIndex++;
-  rotateCarousel();
-});
+
 
 var cellsRange = document.querySelector('.cells-range');
 cellsRange.addEventListener( 'change', changeCarousel );
